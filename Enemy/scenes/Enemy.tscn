@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvyr6oa2nnj2q"]
+
+[ext_resource type="Script" path="res://Enemy/scripts/Enemy.cs" id="1_qwvgl"]
+[ext_resource type="Texture2D" uid="uid://b7aubdmhooipr" path="res://Enemy/assets/janusz.png" id="2_5d2io"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqcit"]
+
+[node name="Enemy" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_qwvgl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, 6)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_5d2io")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.7, 3.7)
+shape = SubResource("CircleShape2D_dqcit")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.500001, -0.5)
+scale = Vector2(2.05, 2.05)
