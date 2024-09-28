@@ -1,9 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://yijgfreeemei"]
+[gd_scene load_steps=8 format=3 uid="uid://yijgfreeemei"]
 
 [ext_resource type="Script" path="res://MainMenu/scripts/LevelSelection.cs" id="1_hgcdj"]
+[ext_resource type="Texture2D" uid="uid://bbhlc4v6jg5sn" path="res://MainMenu/assets/Lemur.png" id="2_0jt0m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6bpu"]
+bg_color = Color(0.93408, 0.93408, 0.93408, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwpc6"]
+bg_color = Color(0.294118, 0.45098, 0.345098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ukcs"]
+bg_color = Color(0.758857, 0.556034, 0.298211, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlbko"]
+bg_color = Color(0.678488, 0.141529, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qb5g"]
-bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+bg_color = Color(0.639216, 0.403922, 0.352941, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -18,7 +43,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hgcdj")
 
-[node name="HFlowContainer" type="HFlowContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 651.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y6bpu")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -33,28 +64,33 @@ theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 30
 alignment = 1
 
-[node name="Level1Button" type="Button" parent="HFlowContainer"]
+[node name="Level1Button" type="Button" parent="Panel/HFlowContainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_2qb5g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rwpc6")
 text = "Level 1"
 
-[node name="Level2Button" type="Button" parent="HFlowContainer"]
+[node name="Level2Button" type="Button" parent="Panel/HFlowContainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_2qb5g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2ukcs")
 text = "Level 2"
 
-[node name="Level3Button" type="Button" parent="HFlowContainer"]
+[node name="Level3Button" type="Button" parent="Panel/HFlowContainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_2qb5g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nlbko")
 text = "Level 3"
 
-[node name="BackButton" type="Button" parent="."]
+[node name="Lemur" type="Sprite2D" parent="Panel/HFlowContainer"]
+position = Vector2(654, 407)
+scale = Vector2(0.249355, 0.296914)
+texture = ExtResource("2_0jt0m")
+
+[node name="BackButton" type="Button" parent="Panel"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -62,17 +98,17 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -133.0
-offset_right = 100.0
-offset_bottom = -33.0
+offset_left = -99.0
+offset_top = -136.0
+offset_right = 101.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_2qb5g")
 text = "Back"
 
-[connection signal="pressed" from="HFlowContainer/Level1Button" to="." method="OnLevel1ButtonPressed"]
-[connection signal="pressed" from="HFlowContainer/Level2Button" to="." method="OnLevel2ButtonPressed"]
-[connection signal="pressed" from="HFlowContainer/Level3Button" to="." method="OnLevel3ButtonPressed"]
-[connection signal="pressed" from="BackButton" to="." method="OnBackButtonPressed"]
+[connection signal="pressed" from="Panel/HFlowContainer/Level1Button" to="." method="OnLevel1ButtonPressed"]
+[connection signal="pressed" from="Panel/HFlowContainer/Level2Button" to="." method="OnLevel2ButtonPressed"]
+[connection signal="pressed" from="Panel/HFlowContainer/Level3Button" to="." method="OnLevel3ButtonPressed"]
+[connection signal="pressed" from="Panel/BackButton" to="." method="OnBackButtonPressed"]
