@@ -11,9 +11,8 @@ config_version=5
 [application]
 
 config/name="AnotherFailedGoogleProject"
-run/main_scene="res://MainMenu/scenes/main_menu.tscn"
+run/main_scene="res://Intro/scenes/Intro.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
-config/icon="res://icon.svg"
 
 [dotnet]
 
