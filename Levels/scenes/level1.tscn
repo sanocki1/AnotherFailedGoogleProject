@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://fmguhmo6srky"]
+
+[ext_resource type="Texture2D" uid="uid://btyhheu3ek048" path="res://Levels/assets/level1.jpg" id="1_o2878"]
+[ext_resource type="PackedScene" uid="uid://citclef86xowk" path="res://HUD/scenes/level_hud.tscn" id="2_6c251"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Level1" type="Sprite2D" parent="."]
+position = Vector2(576, 328)
+texture = ExtResource("1_o2878")
+
+[node name="LevelHud" parent="." instance=ExtResource("2_6c251")]
