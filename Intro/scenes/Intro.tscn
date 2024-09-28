@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx0b18jxajq38"]
+
+[ext_resource type="Script" path="res://Intro/scenes/Intro.cs" id="1_y7oxi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7whhh"]
+bg_color = Color(0.00184107, 0.00184107, 0.00184107, 1)
+
+[node name="IntroScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_y7oxi")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 650.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7whhh")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = -3.0
+offset_right = 1136.0
+offset_bottom = 651.0
+theme_override_font_sizes/font_size = 30
+text = "In the heart of Madagascar’s vibrant rainforest, lemurs live in harmony,
+guardians of their lush home for generations. 
+But now, their peace is threatened. 
+  A ruthless developer named Janusz and his “Asbestos Syndicate” have invaded, 
+aiming to replace the rainforest with toxic, hazardous constructions. 
+Poisonous dust fills the air, and factories choke the life out of the trees. 
+The delicate balance of nature is at risk. But the lemurs won’t let that happen.
+United and determined, they prepare to defend their home against this grave 
+threat. The battle for the rainforest has begun."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
