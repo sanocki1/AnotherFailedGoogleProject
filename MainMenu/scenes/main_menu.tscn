@@ -1,9 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo4ryuy72hwph"]
+[gd_scene load_steps=6 format=3 uid="uid://bo4ryuy72hwph"]
 
 [ext_resource type="Script" path="res://MainMenu/scripts/MainMenu.cs" id="1_1ky6v"]
+[ext_resource type="Texture2D" uid="uid://bhdxsbb5praon" path="res://MainMenu/assets/Asbestocalypse.jpg" id="2_h68c7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ym2o7"]
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbjcj"]
-bg_color = Color(0.176419, 0.176419, 0.176419, 1)
+bg_color = Color(0.292897, 0.451586, 0.343424, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ua85"]
+bg_color = Color(0.641074, 0.403035, 0.351873, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -24,33 +35,44 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1ky6v")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -82.5
-offset_top = -36.0
-offset_right = 82.5
-offset_bottom = 36.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -536.0
+offset_top = -283.0
+offset_right = 533.0
+offset_bottom = 285.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ym2o7")
 
-[node name="PlayButton" type="Button" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 548.0
+offset_right = 715.0
+offset_bottom = 620.0
+
+[node name="PlayButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_jbjcj")
 text = "Play"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../PlayButton")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_jbjcj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1ua85")
 text = "Quit
 "
 
-[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="OnPlayButtonPressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="OnQuitButtonPressed"]
+[node name="Asbestocalypse" type="Sprite2D" parent="Panel"]
+position = Vector2(571, 283)
+scale = Vector2(0.424091, 0.424091)
+texture = ExtResource("2_h68c7")
+
+[connection signal="pressed" from="Panel/VBoxContainer/PlayButton" to="." method="OnPlayButtonPressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/QuitButton" to="." method="OnQuitButtonPressed"]
