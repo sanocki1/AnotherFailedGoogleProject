@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://43sjb8h1ti3c"]
+
+[ext_resource type="Script" path="res://Levels/scenes/PathFollow2d.cs" id="1_yld55"]
+[ext_resource type="PackedScene" uid="uid://dvyr6oa2nnj2q" path="res://Enemy/scenes/Enemy.tscn" id="2_vvh1v"]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+position = Vector2(1, 100)
+rotation = 4.72286
+script = ExtResource("1_yld55")
+
+[node name="Enemy" parent="." instance=ExtResource("2_vvh1v")]
