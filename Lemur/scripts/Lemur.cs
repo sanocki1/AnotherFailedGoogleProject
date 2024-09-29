@@ -44,9 +44,9 @@ public partial class Lemur : StaticBody2D
 			foreach (var enemy in enemyPathFollowMap.Values)
 			{
 				// enemyDetails.Add(enemy.ToString());
-				if (enemy.progress > max_progress)
+				if (enemy.getProgress() > max_progress)
 				{
-					max_progress = enemy.progress;
+					max_progress = enemy.getProgress();
 					maxDistanceEnemy = enemy;
 				}
 			}

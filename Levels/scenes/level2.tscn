@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://feufypmdbhhd"]
 
-[ext_resource type="Script" path="res://Levels/scenes/Level2.cs" id="1_fdqyc"]
+[ext_resource type="Script" path="res://Levels/scripts/Level2.cs" id="1_fdqyc"]
 [ext_resource type="Texture2D" uid="uid://bkxuo0vr6xo33" path="res://Levels/assets/level2.jpg" id="1_vshyn"]
 [ext_resource type="PackedScene" uid="uid://citclef86xowk" path="res://HUD/scenes/level_hud.tscn" id="2_hpp4t"]
-[ext_resource type="Script" path="res://Levels/scenes/Path2d.cs" id="4_ahmh1"]
+[ext_resource type="Script" path="res://Levels/scripts/Path2d.cs" id="4_ahmh1"]
 [ext_resource type="PackedScene" uid="uid://43sjb8h1ti3c" path="res://Levels/scenes/path_follow_2d.tscn" id="5_o5gn5"]
 
 [sub_resource type="Curve2D" id="Curve2D_cy1oc"]
