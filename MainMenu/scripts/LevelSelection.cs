@@ -11,17 +11,17 @@ public partial class LevelSelection : Control
 
 	private void OnLevel1ButtonPressed()
 	{
-		GetTree().ChangeSceneToFile("res://"); 
+		GetTree().ChangeSceneToFile("res://Levels/scenes/level2.tscn"); 
 	}
 
 	private void OnLevel2ButtonPressed()
 	{
-		GetTree().ChangeSceneToFile("res://");
+		GetTree().ChangeSceneToFile("res://Levels/scenes/level2.tscn");
 	}
 
 	private void OnLevel3ButtonPressed()
 	{
-		GetTree().ChangeSceneToFile("res://");
+		GetTree().ChangeSceneToFile("res://Levels/scenes/level2.tscn");
 	}
 
 	private void OnBackButtonPressed()
