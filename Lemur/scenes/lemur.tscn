@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cux4jw8uwauo6"]
+
+[ext_resource type="Script" path="res://Lemur/scripts/Lemur.cs" id="1_os6if"]
+[ext_resource type="Texture2D" uid="uid://dqslnsjnq756h" path="res://Lemur/assets/lemur.png" id="2_r0xt1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gtdvs"]
+radius = 32.0624
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0p25e"]
+radius = 240.133
+
+[node name="Lemur" type="StaticBody2D"]
+position = Vector2(298, 316)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_os6if")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -14)
+shape = SubResource("CircleShape2D_gtdvs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(18, -12)
+rotation = -1.5708
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_r0xt1")
+
+[node name="LemurRange" type="Area2D" parent="."]
+position = Vector2(2, -14)
+collision_mask = 128
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LemurRange"]
+shape = SubResource("CircleShape2D_0p25e")
+debug_color = Color(0, 0.6, 0.701961, 0.0392157)
+
+[connection signal="area_entered" from="LemurRange" to="." method="OnLemurRangeAreaEntered"]
+[connection signal="area_exited" from="LemurRange" to="." method="OnLemurRangeAreaExited"]
