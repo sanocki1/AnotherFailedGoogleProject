@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvyr6oa2nnj2q"]
+[gd_scene load_steps=6 format=3 uid="uid://dvyr6oa2nnj2q"]
 
 [ext_resource type="Script" path="res://Enemy/scripts/Enemy.cs" id="1_qwvgl"]
 [ext_resource type="Texture2D" uid="uid://b7aubdmhooipr" path="res://Enemy/assets/janusz.png" id="2_5d2io"]
@@ -6,9 +6,17 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqcit"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_issjw"]
-radius = 33.8378
+radius = 36.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djt4c"]
+bg_color = Color(0.6, 0.084, 0.084, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Enemy" type="RigidBody2D"]
+collision_layer = 64
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_qwvgl")
@@ -32,3 +40,16 @@ collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_issjw")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(80, 0)
+anchors_preset = -1
+offset_left = -38.0
+offset_top = -50.0
+offset_right = 42.0
+offset_bottom = -23.0
+grow_horizontal = 2
+scale = Vector2(1, 0.440001)
+theme_override_styles/fill = SubResource("StyleBoxFlat_djt4c")
+value = 100.0
+show_percentage = false

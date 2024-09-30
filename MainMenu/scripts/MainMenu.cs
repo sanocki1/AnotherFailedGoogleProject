@@ -6,7 +6,7 @@ public partial class MainMenu : Control
 
 	public override void _Ready()
 	{
-		GetNode<Button>("VBoxContainer/PlayButton").GrabFocus();
+		GetNode<Button>("Panel/VBoxContainer/PlayButton").GrabFocus();
 	}
 	private void OnPlayButtonPressed()
 	{

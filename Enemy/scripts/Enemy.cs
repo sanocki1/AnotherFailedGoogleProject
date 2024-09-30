@@ -3,10 +3,11 @@ using System;
 
 public partial class Enemy : RigidBody2D
 {
-	int enemyHealth = 100;
+	private int _enemyHealth = 100;
 	public float Progress = 0;
 	public float Speed = 100f;
 	public Guid EnemyID { get; private set; }
+	private ProgressBar _healthBar;
 
 	public float getProgress()
 	{
@@ -23,12 +24,25 @@ public partial class Enemy : RigidBody2D
 	{
 		EnemyID = Guid.NewGuid();
 		GD.Print("Enemy created with UUID: " + EnemyID.ToString());
+
+		_healthBar = GetNode<ProgressBar>("HealthBar");
+		_healthBar.Value = _enemyHealth;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
-		Progress += (float)delta * Speed;
+		Progress += Speed;
+		_healthBar.Value = _enemyHealth;
+	}
+
+	public void TakeDamage(int damage)
+	{
+		_enemyHealth -= damage;
+		if (_enemyHealth <= 0)
+		{
+			QueueFree();
+		}
 	}
 
 	// Call this when enemy leave the screen (remember to connect signal!!!)
