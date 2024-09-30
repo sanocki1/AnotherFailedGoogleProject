@@ -4,10 +4,10 @@ using System;
 public partial class Path2d : Path2D
 {
 	private float _timer = 0f;
-	[Export] public float SpawnTime = 5f;
-	
+	[Export] public float SpawnTime = 5.1f;
+
 	private PackedScene _follower = (PackedScene)GD.Load("res://Levels/scenes/path_follow_2d.tscn");
-	
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
