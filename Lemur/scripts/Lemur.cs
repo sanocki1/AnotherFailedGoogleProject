@@ -1,6 +1,6 @@
 using Godot;
 using System;
-using System.Collections.Generic; 
+using System.Collections.Generic;
 public partial class Lemur : StaticBody2D
 {
 	//private PriorityQueue<Enemy, > enemyQueue = new PriorityQueue<Enemy>();
@@ -36,7 +36,7 @@ public partial class Lemur : StaticBody2D
 		// 	LookAt(enemyQueue.Peek().GlobalPosition);
 		// }
 		if (enemyPathFollowMap.Count > 0)
-        {
+		{
 			// var enemyDetails = new List<string>();
 			float max_progress = 0;
 			Enemy maxDistanceEnemy = null;
@@ -54,9 +54,9 @@ public partial class Lemur : StaticBody2D
 			// Join the details into a single string and print it
 			// GD.Print("Enemies: [" + String.Join(", ", enemyDetails) + "]");
 			// Enemy maxDistanceEnemy = enemyPathFollowMap.Values
-            // .OrderByDescending(enemy => enemy.progress)
-            // .FirstOrDefault();
-            LookAt(maxDistanceEnemy.GlobalPosition);
-        }
+			// .OrderByDescending(enemy => enemy.progress)
+			// .FirstOrDefault();
+			LookAt(maxDistanceEnemy.GlobalPosition);
+		}
 	}
 }

@@ -10,7 +10,7 @@ public partial class Intro : Control
 		timer.WaitTime = 35;
 		timer.OneShot = true;
 		timer.Autostart = true;
-		
+
 		timer.Connect("timeout", new Callable(this, nameof(OnTimerTimeout)));
 		timer.Start();
 	}
@@ -18,6 +18,10 @@ public partial class Intro : Control
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if (Input.IsActionJustPressed("ui_cancel"))
+		{
+			GetTree().ChangeSceneToFile("res://MainMenu/scenes/main_menu.tscn");
+		}
 	}
 
 	public void OnTimerTimeout()
