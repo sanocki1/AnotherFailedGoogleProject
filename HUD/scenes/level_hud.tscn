@@ -7,7 +7,7 @@
 [node name="LevelHud" type="Node2D"]
 
 [node name="HealthbarHud" parent="." instance=ExtResource("1_f146v")]
-position = Vector2(186, 16)
+position = Vector2(186, 9)
 
 [node name="VaultHud" parent="." instance=ExtResource("2_l3sfa")]
 position = Vector2(110, 29)
