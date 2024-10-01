@@ -6,6 +6,7 @@ public partial class Lemur : StaticBody2D
 	private Dictionary<Guid, Enemy> enemyPathFollowMap = new Dictionary<Guid, Enemy>();
 	private PackedScene bullet = GD.Load<PackedScene>("res://Bullet/scenes/Bullet.tscn");
 	private float _shootTimer = 0f;
+	private float _shootDelay = 1f;
 
 
 	private void OnLemurRangeAreaEntered(Area2D enemy)
@@ -24,12 +25,10 @@ public partial class Lemur : StaticBody2D
 		this.enemyPathFollowMap.Remove(parent.EnemyID);
 	}
 
-	public override void _Ready()
-	{
-	}
-
 	public override void _PhysicsProcess(double delta)
 	{
+		_shootTimer = Mathf.Max(0f, _shootTimer - (float)delta);
+
 		if (enemyPathFollowMap.Count > 0)
 		{
 			float max_progress = 0;
@@ -45,13 +44,13 @@ public partial class Lemur : StaticBody2D
 			}
 
 			LookAt(maxDistanceEnemy.GlobalPosition);
-			_shootTimer -= (float)delta;
 
-			if (_shootTimer <= 0f)
+			if (_shootTimer == 0f)
 			{
-				_shootTimer = 1f;
+				_shootTimer = _shootDelay;
 				Vector2 direction = new Vector2(Mathf.Cos(Rotation), Mathf.Sin(Rotation)).Normalized();
 				ShootBullet(direction);
+				GD.Print("Lemur shot a bullet");
 			}
 		}
 	}

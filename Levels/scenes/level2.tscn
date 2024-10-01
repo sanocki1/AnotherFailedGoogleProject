@@ -36,4 +36,6 @@ offset_right = 1153.0
 offset_bottom = 646.0
 
 [node name="Lemur" parent="." instance=ExtResource("7_w2vxm")]
-position = Vector2(383, 373)
+position = Vector2(395, 373)
+
+[editable path="LevelHud"]
