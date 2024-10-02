@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Level2 : Node2D
+public partial class Level : Node2D
 {
 	[Export]
 	public PackedScene EnemyScene;
@@ -9,7 +9,7 @@ public partial class Level2 : Node2D
 	private Path2D _path;
 
 	private Timer _spawnTimer;
-	
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

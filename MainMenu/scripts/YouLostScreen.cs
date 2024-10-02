@@ -3,6 +3,7 @@ using System;
 
 public partial class YouLostScreen : Control
 {
+	public string currentLevel;
 	public override void _Ready()
 	{
 		GetNode<Button>("VBoxContainer/PlayAgainButton").GrabFocus();

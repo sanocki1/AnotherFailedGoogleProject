@@ -12,17 +12,13 @@ public partial class Lemur : StaticBody2D
 	private void OnLemurRangeAreaEntered(Area2D enemy)
 	{
 		Enemy parent = (Enemy)enemy.GetParent();
-		// GD.Print("Lemur sees enemy " + enemy.Name);
-		// GD.Print("Enemy parent is " + parent.Name);
-		this.enemyPathFollowMap.Add(parent.EnemyID, parent);
+		enemyPathFollowMap.Add(parent.EnemyID, parent);
 	}
 
 	private void OnLemurRangeAreaExited(Area2D enemy)
 	{
 		Enemy parent = (Enemy)enemy.GetParent();
-		// GD.Print("Lemur lost sight of enemy " + enemy.Name);
-		// GD.Print("Enemy parent is " + parent.Name);
-		this.enemyPathFollowMap.Remove(parent.EnemyID);
+		enemyPathFollowMap.Remove(parent.EnemyID);
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -50,7 +46,6 @@ public partial class Lemur : StaticBody2D
 				_shootTimer = _shootDelay;
 				Vector2 direction = new Vector2(Mathf.Cos(Rotation), Mathf.Sin(Rotation)).Normalized();
 				ShootBullet(direction);
-				GD.Print("Lemur shot a bullet");
 			}
 		}
 	}

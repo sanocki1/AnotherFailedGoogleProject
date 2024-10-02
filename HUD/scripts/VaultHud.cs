@@ -3,43 +3,39 @@ using System;
 
 public partial class VaultHud : Node2D
 {
-	private int coins;
-	// Called when the node enters the scene tree for the first time.
+	private int _coins;
+	private Label _coinAmountLabel;
 
-	private void update_text()
+	public override void _Ready()
 	{
-		Label coin_ammount = this.GetNode<Label>("coin_ammount");
-    	coin_ammount.Text = "Coins: " + this.coins.ToString();
-	}
-	
-	public void add_coins(int coins)
-	{
-		this.coins += coins;
+		_coinAmountLabel = GetNode<Label>("CoinAmountLabel");
+		_coins = 300;
+		UpdateText();
 	}
 
-	public Boolean spend_coins(int coins)
+	private void UpdateText()
+	{
+		_coinAmountLabel.Text = _coins + "$";
+	}
+
+	public void AddCoins(int coins)
+	{
+		_coins += coins;
+		UpdateText();
+	}
+
+	public Boolean SpendCoins(int coins)
 	{
 		/*
 		* Tries to spend coins. If enough coins are available, it returns true and deducts coins.
 		* If there are not enough coins, it returns false and does not change the coin amount.
 		*/
-		 if (this.coins >= coins)
+		if (_coins >= coins)
 		{
-			this.coins -= coins; 
+			_coins -= coins;
+			UpdateText();
 			return true;
 		}
 		return false;
-		
-	}
-	public override void _Ready()
-	{
-		this.coins = 300;
-		update_text();
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-		update_text();
 	}
 }
