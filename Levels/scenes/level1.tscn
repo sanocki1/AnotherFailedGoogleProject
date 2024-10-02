@@ -1,12 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://fmguhmo6srky"]
+[gd_scene load_steps=7 format=3 uid="uid://fmguhmo6srky"]
 
+[ext_resource type="Script" path="res://Levels/scripts/Level.cs" id="1_nr337"]
 [ext_resource type="Texture2D" uid="uid://btyhheu3ek048" path="res://Levels/assets/level1.jpg" id="1_o2878"]
 [ext_resource type="PackedScene" uid="uid://citclef86xowk" path="res://HUD/scenes/level_hud.tscn" id="2_6c251"]
+[ext_resource type="Script" path="res://Levels/scripts/Path2d.cs" id="4_2e61g"]
+[ext_resource type="PackedScene" uid="uid://43sjb8h1ti3c" path="res://Levels/scenes/path_follow_2d.tscn" id="5_tfm70"]
+
+[sub_resource type="Curve2D" id="Curve2D_uds7i"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2, 124, 0, 0, 0, 0, 89, 125, 0, 0, 0, 0, 176, 124, 0, 0, 0, 0, 253, 124, 0, 0, 0, 0, 328, 123, 0, 0, 0, 0, 432, 122, 0, 0, 0, 0, 469, 134, 0, 0, 0, 0, 489, 160, 0, 0, 0, 0, 495, 182, 0, 0, 0, 0, 494, 204, 0, 0, 0, 0, 481, 222, 0, 0, 0, 0, 456, 241, 0, 0, 0, 0, 421, 265, 0, 0, 0, 0, 388, 286, 0, 0, 0, 0, 366, 307, 0, 0, 0, 0, 331, 339, 0, 0, 0, 0, 310, 372, 0, 0, 0, 0, 300, 411, 0, 0, 0, 0, 304, 450, 0, 0, 0, 0, 320, 494, 0, 0, 0, 0, 339, 523, 0, 0, 0, 0, 360, 542, 0, 0, 0, 0, 387, 559, 0, 0, 0, 0, 427, 568, 0, 0, 0, 0, 468, 564, 0, 0, 0, 0, 504, 552, 0, 0, 0, 0, 532, 534, 0, 0, 0, 0, 548, 516, 0, 0, 0, 0, 560, 489, 0, 0, 0, 0, 573, 454, 0, 0, 0, 0, 584, 421, 0, 0, 0, 0, 600, 391, 0, 0, 0, 0, 623, 365, 0, 0, 0, 0, 651, 341, 0, 0, 0, 0, 680, 325, 0, 0, 0, 0, 715, 319, 0, 0, 0, 0, 749, 321, 0, 0, 0, 0, 780, 333, 0, 0, 0, 0, 803, 347, 0, 0, 0, 0, 823, 364, 0, 0, 0, 0, 844, 385, 0, 0, 0, 0, 863, 409, 0, 0, 0, 0, 875, 431, 0, 0, 0, 0, 893, 461, 0, 0, 0, 0, 902, 478, 0, 0, 0, 0, 912, 489, 0, 0, 0, 0, 922, 495, 0, 0, 0, 0, 935, 498, 0, 0, 0, 0, 945, 499)
+}
+point_count = 49
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_nr337")
 
 [node name="Level1" type="Sprite2D" parent="."]
-position = Vector2(576, 328)
 texture = ExtResource("1_o2878")
+centered = false
 
 [node name="LevelHud" parent="." instance=ExtResource("2_6c251")]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_uds7i")
+script = ExtResource("4_2e61g")
+
+[node name="PathFollow2D" parent="Path2D" instance=ExtResource("5_tfm70")]
+position = Vector2(2, 124)
+rotation = 0.0114937

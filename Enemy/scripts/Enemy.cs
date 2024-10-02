@@ -23,8 +23,6 @@ public partial class Enemy : RigidBody2D
 	public override void _Ready()
 	{
 		EnemyID = Guid.NewGuid();
-		GD.Print("Enemy created with UUID: " + EnemyID.ToString());
-
 		_healthBar = GetNode<ProgressBar>("HealthBar");
 		_healthBar.Value = _enemyHealth;
 	}

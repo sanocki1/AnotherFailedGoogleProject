@@ -25,6 +25,6 @@ public partial class PathFollow2d : PathFollow2D
 	private void EnemyEscaped()
 	{
 		QueueFree();
-		_healthbarHud.ApplyDamage(10);
+		_healthbarHud.ApplyDamage(25);
 	}
 }
