@@ -14,6 +14,10 @@ config/name="AnotherFailedGoogleProject"
 run/main_scene="res://Intro/scenes/Intro.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 
+[autoload]
+
+Global="*res://Global.cs"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -21,3 +25,8 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="AnotherFailedGoogleProject"
+
+[layer_names]
+
+2d_physics/layer_7="Enemy Detection Layer"
+2d_physics/layer_8="Bullet Hit Detection Layer"

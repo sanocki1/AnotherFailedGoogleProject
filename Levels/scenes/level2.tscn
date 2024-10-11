@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://feufypmdbhhd"]
+[gd_scene load_steps=6 format=3 uid="uid://feufypmdbhhd"]
 
 [ext_resource type="Script" path="res://Levels/scripts/Level.cs" id="1_fdqyc"]
 [ext_resource type="Texture2D" uid="uid://bkxuo0vr6xo33" path="res://Levels/assets/level2.jpg" id="1_vshyn"]
-[ext_resource type="PackedScene" uid="uid://citclef86xowk" path="res://HUD/scenes/level_hud.tscn" id="2_hpp4t"]
-[ext_resource type="Script" path="res://Levels/scripts/Path2d.cs" id="4_ahmh1"]
-[ext_resource type="PackedScene" uid="uid://43sjb8h1ti3c" path="res://Levels/scenes/path_follow_2d.tscn" id="5_o5gn5"]
+[ext_resource type="PackedScene" uid="uid://cbhohxmvb5mdb" path="res://HUD/scenes/level_hud.tscn" id="3_bmrq7"]
 [ext_resource type="PackedScene" uid="uid://cux4jw8uwauo6" path="res://Lemur/scenes/lemur.tscn" id="7_w2vxm"]
 
 [sub_resource type="Curve2D" id="Curve2D_cy1oc"]
@@ -16,18 +14,14 @@ point_count = 49
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_fdqyc")
 
-[node name="Level2" type="Sprite2D" parent="."]
+[node name="Level2Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_vshyn")
 centered = false
 
-[node name="LevelHud" parent="." instance=ExtResource("2_hpp4t")]
-
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_cy1oc")
-script = ExtResource("4_ahmh1")
 
-[node name="PathFollow2D" parent="Path2D" instance=ExtResource("5_o5gn5")]
-rotation = 0.0256354
+[node name="LevelHud" parent="." instance=ExtResource("3_bmrq7")]
 
 [node name="Lemur" parent="." instance=ExtResource("7_w2vxm")]
 position = Vector2(395, 373)
