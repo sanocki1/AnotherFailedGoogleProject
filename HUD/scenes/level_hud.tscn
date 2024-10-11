@@ -1,18 +1,200 @@
-[gd_scene load_steps=4 format=3 uid="uid://citclef86xowk"]
+[gd_scene load_steps=10 format=3 uid="uid://cbhohxmvb5mdb"]
 
-[ext_resource type="PackedScene" uid="uid://byakmlqwch7da" path="res://HUD/scenes/healthbar_hud.tscn" id="1_f146v"]
-[ext_resource type="PackedScene" uid="uid://d3e60shxmmbux" path="res://HUD/scenes/vault_hud.tscn" id="2_l3sfa"]
-[ext_resource type="PackedScene" uid="uid://jf71v73ic1lm" path="res://HUD/scenes/side_menu_hud.tscn" id="3_uh4lc"]
+[ext_resource type="Texture2D" uid="uid://dolu2adcteqv4" path="res://HUD/assets/Coin.png" id="1_dpd7h"]
+[ext_resource type="Script" path="res://HUD/scripts/LevelHud.cs" id="1_fw0at"]
+[ext_resource type="Texture2D" uid="uid://dgisgxvc57qp7" path="res://HUD/assets/lemur_1.png" id="2_k4r3e"]
+[ext_resource type="Texture2D" uid="uid://dqpii2ej5v67e" path="res://HUD/assets/lemur_2.png" id="3_qum8x"]
 
-[node name="LevelHud" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kswmq"]
+bg_color = Color(0.158472, 0.158472, 0.158472, 1)
 
-[node name="HealthbarHud" parent="." instance=ExtResource("1_f146v")]
-position = Vector2(186, 9)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bi8pm"]
+bg_color = Color(0.675022, 0.59641, 0.332878, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
-[node name="VaultHud" parent="." instance=ExtResource("2_l3sfa")]
-position = Vector2(110, 29)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1sbu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="SideMenuHud" parent="." instance=ExtResource("3_uh4lc")]
-offset_left = 941.0
-offset_right = 1153.0
-offset_bottom = 646.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytnqy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sn2l3"]
+bg_color = Color(0.699195, 2.08165e-06, 6.73831e-07, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="LevelHud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fw0at")
+
+[node name="Vault" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 194.0
+offset_top = -1.0
+offset_right = 314.0
+offset_bottom = 129.0
+
+[node name="VaultLabel" type="Label" parent="Vault"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -7.00001
+offset_top = -119.0
+offset_right = 107.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 40
+text = "300$"
+horizontal_alignment = 1
+
+[node name="VaultTexture" type="TextureRect" parent="Vault"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -68.0
+offset_right = 2082.0
+offset_bottom = 1552.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_dpd7h")
+
+[node name="SideMenu" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 648)
+layout_mode = 0
+offset_left = 940.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SideMenuBackground" type="Panel" parent="SideMenu"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kswmq")
+
+[node name="MarginContainer" type="MarginContainer" parent="SideMenu"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SideMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SideMenu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SideMenu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SideMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+
+[node name="Panel" type="Panel" parent="SideMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bi8pm")
+
+[node name="TextureRect" type="TextureRect" parent="SideMenu/MarginContainer/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_k4r3e")
+
+[node name="SelectTower" type="Button" parent="SideMenu/MarginContainer/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_u1sbu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u1sbu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u1sbu")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="SideMenu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="SideMenu/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="SideMenu/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bi8pm")
+
+[node name="TextureRect" type="TextureRect" parent="SideMenu/MarginContainer/HBoxContainer/VBoxContainer2/Panel2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_qum8x")
+
+[node name="SelectTower2" type="Button" parent="SideMenu/MarginContainer/HBoxContainer/VBoxContainer2/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_ytnqy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ytnqy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ytnqy")
+
+[node name="MarginContainer2" type="MarginContainer" parent="SideMenu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="SellButton" type="Button" parent="SideMenu/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/hover = SubResource("StyleBoxFlat_sn2l3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sn2l3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sn2l3")
+text = "SELL $"
+
+[node name="Healthbar" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 52.0
+offset_bottom = 52.0
+
+[node name="HealthBackground" type="ColorRect" parent="Healthbar"]
+layout_mode = 0
+offset_right = 194.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="HealthForeground" type="ColorRect" parent="Healthbar"]
+layout_mode = 0
+offset_right = 194.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
+
+[node name="HealthAmount" type="Label" parent="Healthbar"]
+layout_mode = 0
+offset_right = 194.0
+offset_bottom = 40.0
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://tvf35hwtwri2"]
 
-[ext_resource type="Script" path="res://MainMenu/scripts/YouLostScreen.cs" id="1_0oj3h"]
+[ext_resource type="Script" path="res://MainMenu/scripts/YouLostScreen.cs" id="1_vofr2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pb7ax"]
 bg_color = Color(0.201527, 0.201527, 0.201526, 1)
@@ -9,14 +9,14 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="YouLostScreen" type="Control"]
+[node name="GameOverScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0oj3h")
+script = ExtResource("1_vofr2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 top_level = true
@@ -68,7 +68,7 @@ offset_right = 60.0
 offset_bottom = 160.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 64
-text = "You Lost"
+text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
 

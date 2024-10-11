@@ -6,12 +6,14 @@ public partial class YouLostScreen : Control
 	public string currentLevel;
 	public override void _Ready()
 	{
+		var global = (Global)GetNode("/root/Global");
+		currentLevel = global.currentLevelPath;
 		GetNode<Button>("VBoxContainer/PlayAgainButton").GrabFocus();
 	}
 
 	private void OnPlayAgainButtonPressed()
 	{
-		GetTree().ChangeSceneToFile("res://Levels/scenes/level2.tscn");
+		GetTree().ChangeSceneToFile(currentLevel);
 	}
 
 	private void OnMainMenuButtonPressed()
