@@ -4,6 +4,7 @@ using System;
 public partial class LevelHud : Control
 {
 	[Signal] public delegate void PlayerLostEventHandler();
+	[Signal] public delegate void LemurButtonPressedEventHandler();
 	private int _health = 100;
 	private float _baseHealthWidth;
 	private ColorRect _healthForeground;
@@ -40,7 +41,6 @@ public partial class LevelHud : Control
 		UpdateHealthForeground();
 		if (_health == 0)
 		{
-			// GetTree().ChangeSceneToFile("res://MainMenu/scenes/you_lost_screen.tscn");
 			EmitSignal(SignalName.PlayerLost);
 		}
 	}
@@ -69,5 +69,10 @@ public partial class LevelHud : Control
 			return true;
 		}
 		return false;
+	}
+
+	private void OnSelectLemur1Pressed()
+	{
+		EmitSignal(SignalName.LemurButtonPressed);
 	}
 }

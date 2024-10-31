@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhg2qyvl2a1dk"
-path="res://.godot/imported/lemur.png-fe9cff1d18aae7b58a3d0fd9d3c07b05.ctex"
+uid="uid://c6tto2xa5jqk2"
+path="res://.godot/imported/lemur_range_red.png-8f16a829134d0baad766d7a688bb91f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Lemur/assets/lemur.png"
-dest_files=["res://.godot/imported/lemur.png-fe9cff1d18aae7b58a3d0fd9d3c07b05.ctex"]
+source_file="res://Lemur/assets/lemur_range_red.png"
+dest_files=["res://.godot/imported/lemur_range_red.png-8f16a829134d0baad766d7a688bb91f4.ctex"]
 
 [params]
 
